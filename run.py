@@ -6,16 +6,31 @@ ROOM_OBJECTS = {
     "door": "A sturdy oak door locked with a solid padlock",
     "padlock": "A solid steel 4-digit combination lock",
     "casket": "A wooden casket with a slightly rotted lid",
-    "book": "An old tome that is sealed with a standard lock"
+    "book": "An old tome that is sealed with a standard lock",
+    "skeleton": '''It's an old skeleton. Something reflects the torchlight 
+    from inside it's mouth.'''
+}
+
+OBJECT_USES = {
+    "locked door": "The door doesn't budge.",
+    "unlocked door": "The door swings open, revealing the way out!",
+    "casket": "You remove the lid and inside the casket is a skeleton.",
+    "locked book": "The book cannot be opened without a key.",
+    "unlocked book": "The lock comes free allowing you to read the book.",
+    "skeleton": "You open the mouth of a skeleton and take a key from inside."
 }
 
 
 class Object:
-    def __init__(self, description):
-        self.description = description
+    def __init__(self, item):
+        self.description = ROOM_OBJECTS[item]
+        self.use = OBJECT_USES[item]
 
     def describe(self):
         print(self.description)
+
+    def use_object(self):
+        print(self.use)
 
 
 def title():
@@ -44,8 +59,13 @@ def initiate():
 
 
 def examine(item):
-    room_item = Object(ROOM_OBJECTS[item])
+    room_item = Object(item)
     return room_item.describe()
+
+
+def use(item):
+    room_item = Object(item)
+    return room_item.use_object()
 
 
 def player_action(action):
@@ -55,8 +75,16 @@ def player_action(action):
         initiate()
     elif player_input[0].lower() == "examine":
         examine(player_input[1].lower())
+        print("")
+        new_action = input()
+        player_action(new_action)
+    elif player_input[0].lower() == "use":
+        use(player_input[1].lower())
+        print("")
+        new_action = input()
+        player_action(new_action)
     else:
-        print("Enter a valid input.")
+        print("Enter a valid input.\n")
         new_action = input()
         player_action(new_action)
 
