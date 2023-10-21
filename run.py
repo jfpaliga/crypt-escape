@@ -2,7 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
-ROOM_OBJECTS = {
+ROOM_ITEMS = {
     "door": "A sturdy oak door locked with a solid padlock",
     "padlock": "A solid steel 4-digit combination lock",
     "casket": "A wooden casket with a slightly rotted lid",
@@ -11,7 +11,7 @@ ROOM_OBJECTS = {
     from inside it's mouth.'''
 }
 
-OBJECT_USES = {
+ITEM_USES = {
     "locked door": "The door doesn't budge.",
     "unlocked door": "The door swings open, revealing the way out!",
     "casket": "You remove the lid and inside the casket is a skeleton.",
@@ -21,16 +21,21 @@ OBJECT_USES = {
 }
 
 
-class Object:
+class Item:
     def __init__(self, item):
-        self.description = ROOM_OBJECTS[item]
-        self.use = OBJECT_USES[item]
+        self.description = ROOM_ITEMS[item]
+        self.use = None
 
     def describe(self):
         print(self.description)
 
     def use_object(self):
         print(self.use)
+
+
+class Player:
+    def __init__(self):
+        self.inventory = []
 
 
 def title():
@@ -59,12 +64,12 @@ def initiate():
 
 
 def examine(item):
-    room_item = Object(item)
+    room_item = Item(item)
     return room_item.describe()
 
 
 def use(item):
-    room_item = Object(item)
+    room_item = Item(item)
     return room_item.use_object()
 
 
