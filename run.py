@@ -89,9 +89,17 @@ def validate_use(player, item):
 
 
 def use(player, item):
-    if item.name == "key" or "book":
-        player.add_to_inventory(item.name)
-    return player, item.use_object()
+    if item.name == "skeleton":
+        player.add_to_inventory("key")
+    if item.name == "book":
+        if "key" in player.inventory:
+            player.add_to_inventory("page")
+            ITEM_USES["book"] = '''You use the key to unlock the book.\n
+            You pick up a page that falls out as you open the book.\n'''
+    if item.name == "padlock":
+        return None
+    else:
+        return player, item.use_object()
 
 
 def check_inventory(player):
