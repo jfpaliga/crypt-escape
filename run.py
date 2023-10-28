@@ -1,6 +1,7 @@
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+import sys
 
 ROOM_ITEMS = {
     "door": "A sturdy oak door locked with a solid padlock.\n",
@@ -9,7 +10,7 @@ ROOM_ITEMS = {
     "book": "An old tome that is sealed with a standard lock.\n",
     "page": "A page that fell out of the book.\n",
     "skeleton": '''It's an old skeleton. Something reflects the torchlight
-     from inside it's mouth.\n'''
+from inside it's mouth.\n'''
 }
 
 ITEM_USES = {
@@ -17,20 +18,20 @@ ITEM_USES = {
     "casket": "You remove the lid and inside the casket is a skeleton.\n",
     "book": "You pick up the book. It cannot be opened without a key.\n",
     "skeleton": '''You open the mouth of a skeleton and
-     take a key from inside.\n''',
-    "page": '''You read the text on the page:\n\n
-    "It began with the forging of the Great Rings.\n
+take a key from inside.\n''',
+    "page": '''You read the text on the page:\n
+    "It began with the forging of the Great Rings.
     Three were given to the Elves, immortal, wisest and fairest of all beings.
-    \nSeven to the Dwarf lords, great miners and craftsmen\n
-    of the mountain halls.\n
-    And Nine, nine rings were gifted to the race of men,\n
-    who, above all else, desire power.\n
-    But they were, all of them, deceived, for another Ring was made.\n
-    In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron\n
-    forged in secret a master Ring, to control all others.\n
-    And into this Ring he poured his cruelty, his malice\n
-    and his will to dominate all life.\n
-    One Ring to rule them all."''',
+    Seven to the Dwarf lords, great miners and craftsmen
+    of the mountain halls.
+    And Nine, nine rings were gifted to the race of men,
+    who, above all else, desire power.
+    But they were, all of them, deceived, for another Ring was made.
+    In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron
+    forged in secret a master Ring, to control all others.
+    And into this Ring he poured his cruelty, his malice
+    and his will to dominate all life.
+    One Ring to rule them all."\n''',
     "padlock": None
 }
 
@@ -112,13 +113,13 @@ def use(player, item):
         if "key" in player.inventory:
             if "page" not in player.inventory:
                 player.add_to_inventory("page")
-            print('''You use the key to unlock the book.\n
-            You pick up a page that falls out as you open the book.\n''')
+            print("You use the key to unlock the book.\n")
+            print("You pick up a page that falls out as you open the book.\n")
         else:
             return player, item.use_object()
     if item.name == "padlock":
         print("The padlock has a 4 digit numerical lock.\n")
-        padlock_code = input("Enter the 4 digit code: ")
+        padlock_code = input("Enter the 4 digit code:\n")
         validate_code(player, padlock_code)
     else:
         return player, item.use_object()
@@ -141,16 +142,16 @@ def validate_code(player, code):
 
 def use_padlock(player, code):
     if int(code) == 3791:
-        None
+        end_game()
     else:
         print('''You enter the numbers into the padlock,\n
-        but it does not budge.''')
+        but it does not budge.\n''')
         initiate(player)
 
 
 def check_inventory(player):
     if len(player.inventory) == 0:
-        print("You have nothing in your inventory.")
+        print("You have nothing in your inventory.\n")
     else:
         print("You have the following items in your inventory:\n")
         for item in player.inventory:
@@ -174,6 +175,21 @@ def validate_action(player, action):
     else:
         print("Enter a valid input.\n")
         request_action(player)
+
+
+def end_game():
+    print("As the numbers click into place, the padlock opens.")
+    print("You push the door and it swings open.")
+    print("You have escaped!\n")
+    print("Thank you for playing!\n")
+    print("Type restart to play again or exit to quit the game.")
+    player_input = input()
+    if player_input.lower() == "restart":
+        main()
+    elif player_input.lower() == "exit":
+        sys.exit()
+    else:
+        end_game()
 
 
 def main():
