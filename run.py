@@ -7,6 +7,7 @@ ROOM_ITEMS = {
     "padlock": "A solid steel 4-digit combination lock.\n",
     "casket": "A wooden casket with a slightly rotted lid.\n",
     "book": "An old tome that is sealed with a standard lock.\n",
+    "page": "A page that fell out of the book.\n",
     "skeleton": '''It's an old skeleton. Something reflects the torchlight
      from inside it's mouth.\n'''
 }
@@ -17,7 +18,20 @@ ITEM_USES = {
     "book": "You pick up the book. It cannot be opened without a key.\n",
     "skeleton": '''You open the mouth of a skeleton and
      take a key from inside.\n''',
-    "padlock": "Placeholder\n"
+    "page": '''You read the text on the page:\n\n
+    "It began with the forging of the Great Rings.\n
+    Three were given to the Elves, immortal, wisest and fairest of all beings.
+    \nSeven to the Dwarf lords, great miners and craftsmen\n
+    of the mountain halls.\n
+    And Nine, nine rings were gifted to the race of men,\n
+    who, above all else, desire power.\n
+    But they were, all of them, deceived, for another Ring was made.\n
+    In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron\n
+    forged in secret a master Ring, to control all others.\n
+    And into this Ring he poured his cruelty, his malice\n
+    and his will to dominate all life.\n
+    One Ring to rule them all."''',
+    "padlock": None
 }
 
 
@@ -38,7 +52,7 @@ class Item:
 class Player:
     def __init__(self):
         self.inventory = []
- 
+
     def add_to_inventory(self, item):
         self.inventory.append(item)
 
@@ -65,6 +79,7 @@ def initiate(player):
     print("To use an object, type use e.g. 'use door'")
     print("To check your inventory, type inventory")
     print("To see these instructions again, type help\n")
+    request_action(player)
 
 
 def request_action(player):
@@ -90,16 +105,47 @@ def validate_use(player, item):
 
 def use(player, item):
     if item.name == "skeleton":
-        player.add_to_inventory("key")
+        if "key" not in player.inventory:
+            player.add_to_inventory("key")
+        return player, item.use_object()
     if item.name == "book":
         if "key" in player.inventory:
-            player.add_to_inventory("page")
-            ITEM_USES["book"] = '''You use the key to unlock the book.\n
-            You pick up a page that falls out as you open the book.\n'''
+            if "page" not in player.inventory:
+                player.add_to_inventory("page")
+            print('''You use the key to unlock the book.\n
+            You pick up a page that falls out as you open the book.\n''')
+        else:
+            return player, item.use_object()
     if item.name == "padlock":
-        return None
+        print("The padlock has a 4 digit numerical lock.\n")
+        padlock_code = input("Enter the 4 digit code: ")
+        validate_code(player, padlock_code)
     else:
         return player, item.use_object()
+
+
+def validate_code(player, code):
+    try:
+        int(code)
+        if len(code) == 4:
+            use_padlock(player, code)
+        else:
+            print("Please enter a 4 digit number: ")
+            new_code = input()
+            validate_code(player, new_code)
+    except ValueError:
+        print("Please enter a 4 digit number: ")
+        new_code = input()
+        validate_code(player, new_code)
+
+
+def use_padlock(player, code):
+    if int(code) == 3791:
+        None
+    else:
+        print('''You enter the numbers into the padlock,\n
+        but it does not budge.''')
+        initiate(player)
 
 
 def check_inventory(player):
