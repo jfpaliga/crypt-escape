@@ -84,7 +84,7 @@ def initiate(player):
 
 
 def request_action(player):
-    action = input()
+    action = input("\n")
     validate_action(player, action)
 
 
@@ -131,12 +131,10 @@ def validate_code(player, code):
         if len(code) == 4:
             use_padlock(player, code)
         else:
-            print("Please enter a 4 digit number: ")
-            new_code = input()
+            new_code = input("Please enter a 4 digit number:\n")
             validate_code(player, new_code)
     except ValueError:
-        print("Please enter a 4 digit number: ")
-        new_code = input()
+        new_code = input("Please enter a 4 digit number:\n")
         validate_code(player, new_code)
 
 
@@ -182,8 +180,7 @@ def end_game():
     print("You push the door and it swings open.")
     print("You have escaped!\n")
     print("Thank you for playing!\n")
-    print("Type restart to play again or exit to quit the game.")
-    player_input = input()
+    player_input = input("Type restart to play again or exit to quit.\n")
     if player_input.lower() == "restart":
         main()
     elif player_input.lower() == "exit":
