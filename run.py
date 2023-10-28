@@ -17,7 +17,7 @@ ITEM_USES = {
     "door": "The door doesn't budge.\n",
     "casket": "You remove the lid and inside the casket is a skeleton.\n",
     "book": "You pick up the book. It cannot be opened without a key.\n",
-    "skeleton": '''You open the mouth of a skeleton and
+    "skeleton": '''You open the mouth of the skeleton and
 take a key from inside.\n''',
     "page": '''You read the text on the page:\n
     "It began with the forging of the Great Rings.
@@ -109,7 +109,7 @@ def use(player, item):
         if "key" not in player.inventory:
             player.add_to_inventory("key")
         return player, item.use_object()
-    if item.name == "book":
+    elif item.name == "book":
         if "key" in player.inventory:
             if "page" not in player.inventory:
                 player.add_to_inventory("page")
@@ -117,7 +117,7 @@ def use(player, item):
             print("You pick up a page that falls out as you open the book.\n")
         else:
             return player, item.use_object()
-    if item.name == "padlock":
+    elif item.name == "padlock":
         print("The padlock has a 4 digit numerical lock.\n")
         padlock_code = input("Enter the 4 digit code:\n")
         validate_code(player, padlock_code)
