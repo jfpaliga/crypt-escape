@@ -35,12 +35,12 @@ class Player:
     def end_game(self):
         print(END_TEXT)
         while True:
-            player_input = input("Type restart to play again or exit to quit.\n")
-            if player_input.lower() == "restart":
+            _input = input("Type restart to play again or exit to quit.\n")
+            if _input.lower() == "restart":
                 self.inventory = []
                 print(TITLE)
                 self.start_game()
-            elif player_input.lower() == "exit":
+            elif _input.lower() == "exit":
                 sys.exit()
 
     def get_action(self):
