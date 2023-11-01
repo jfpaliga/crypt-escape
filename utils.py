@@ -1,8 +1,8 @@
 from constants import ROOM_ITEMS, ITEM_USES
-from run import Item
 
 
 def validate_action(player, action):
+    from run import Item
     player_input = action.split(' ')
     choice = player_input[0].lower()
     if len(player_input) == 2:
@@ -25,6 +25,7 @@ def validate_action(player, action):
 
 
 def validate_use(player, item):
+    from run import Item
     if item in ITEM_USES.keys():
         room_item = Item(item, ROOM_ITEMS[item], ITEM_USES[item])
         player.use(room_item)

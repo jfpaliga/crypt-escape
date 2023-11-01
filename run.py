@@ -37,6 +37,7 @@ class Player:
         player_input = input("Type restart to play again or exit to quit.\n")
         if player_input.lower() == "restart":
             self.inventory = []
+            print(TITLE)
             self.start_game()
         elif player_input.lower() == "exit":
             sys.exit()
@@ -79,7 +80,7 @@ class Player:
         self.inventory.append(item)
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     print(TITLE)
     player = Player()
     player.start_game()
