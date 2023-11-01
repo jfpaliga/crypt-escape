@@ -1,6 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import sys
 from constants import ROOM_ITEMS, ITEM_USES, TITLE, START_TEXT, END_TEXT
 from utils import validate_action, validate_use, validate_code, use_padlock

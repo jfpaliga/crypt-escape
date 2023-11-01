@@ -52,4 +52,3 @@ def use_padlock(player, code):
         print('''You enter the numbers into the padlock,\n
         but it does not budge.\n''')
         player.start_game()
-        
