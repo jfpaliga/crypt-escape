@@ -6,16 +6,24 @@ from constants import ROOM_ITEMS, ITEM_USES, TITLE, START_TEXT, END_TEXT
 
 
 class Item:
-    def __init__(self, item):
-        self.name = item
-        self.description = ROOM_ITEMS[item]
-        self.use = ITEM_USES[item]
+    def __init__(self, name, description, use):
+        self.name = name
+        self.description = description
+        self.use = use
 
     def describe(self):
         print(self.description)
 
     def use_object(self):
         print(self.use)
+
+    @staticmethod
+    def examine(item):
+        if item in ROOM_ITEMS.keys():
+            room_item = Item(item, ROOM_ITEMS[item], ITEM_USES[item])
+            return room_item.describe()
+        else:
+            print("There is nothing to see.\n")
 
 
 class Player:
@@ -36,17 +44,9 @@ def request_action(player):
     validate_action(player, action)
 
 
-def examine(item):
-    if item in ROOM_ITEMS.keys():
-        room_item = Item(item)
-        return room_item.describe()
-    else:
-        print("There is nothing to see.\n")
-
-
 def validate_use(player, item):
     if item in ITEM_USES.keys():
-        room_item = Item(item)
+        room_item = Item(item, ROOM_ITEMS[item], ITEM_USES[item])
         use(player, room_item)
     else:
         print("You cannot use that.\n")
@@ -116,7 +116,7 @@ def validate_action(player, action):
         check_inventory(player)
         request_action(player)
     elif choice == "examine":
-        examine(item)
+        Item.examine(item)
         request_action(player)
     elif choice == "use":
         validate_use(player, item)
