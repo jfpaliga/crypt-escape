@@ -2,38 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import sys
-
-ROOM_ITEMS = {
-    "door": "A sturdy oak door locked with a solid padlock.\n",
-    "padlock": "A solid steel 4-digit combination lock.\n",
-    "casket": "A wooden casket with a slightly rotted lid.\n",
-    "book": "An old tome that is sealed with a standard lock.\n",
-    "page": "A page that fell out of the book.\n",
-    "skeleton": '''It's an old skeleton. Something reflects the torchlight
-from inside it's mouth.\n'''
-}
-
-ITEM_USES = {
-    "door": "The door doesn't budge.\n",
-    "casket": "You remove the lid and inside the casket is a skeleton.\n",
-    "book": "You pick up the book. It cannot be opened without a key.\n",
-    "skeleton": '''You open the mouth of the skeleton and
-take a key from inside.\n''',
-    "page": '''You read the text on the page:\n
-    "It began with the forging of the Great Rings.
-    Three were given to the Elves, immortal, wisest and fairest of all beings.
-    Seven to the Dwarf lords, great miners and craftsmen
-    of the mountain halls.
-    And Nine, nine rings were gifted to the race of men,
-    who, above all else, desire power.
-    But they were, all of them, deceived, for another Ring was made.
-    In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron
-    forged in secret a master Ring, to control all others.
-    And into this Ring he poured his cruelty, his malice
-    and his will to dominate all life.
-    One Ring to rule them all."\n''',
-    "padlock": None
-}
+from constants import ROOM_ITEMS, ITEM_USES, TITLE, START_TEXT, END_TEXT
 
 
 class Item:
@@ -41,7 +10,6 @@ class Item:
         self.name = item
         self.description = ROOM_ITEMS[item]
         self.use = ITEM_USES[item]
-        self.is_locked = True
 
     def describe(self):
         print(self.description)
@@ -58,28 +26,8 @@ class Player:
         self.inventory.append(item)
 
 
-def title():
-    title = r'''
- _____                  _     _____                         
-/  __ \                | |   |  ___|                        
-| /  \/_ __ _   _ _ __ | |_  | |__ ___  ___ __ _ _ __   ___ 
-| |   | '__| | | | '_ \| __| |  __/ __|/ __/ _` | '_ \ / _ \
-| \__/\ |  | |_| | |_) | |_  | |__\__ \ (_| (_| | |_) |  __/
- \____/_|   \__, | .__/ \__| \____/___/\___\__,_| .__/ \___|
-             __/ | |                            | |         
-            |___/|_|                            |_|         
-            '''
-    print(title + "\n")
-    print("Welcome to Crypt Escape!\n")
-
-
 def initiate(player):
-    print("You are in a cold stone crypt, a single torch provides light.")
-    print("You see a door with a padlock, a closed casket and a book.\n")
-    print("To see more details, type examine e.g. 'examine door'")
-    print("To use an object, type use e.g. 'use door'")
-    print("To check your inventory, type inventory")
-    print("To see these instructions again, type help\n")
+    print(START_TEXT)
     request_action(player)
 
 
@@ -176,10 +124,7 @@ def validate_action(player, action):
 
 
 def end_game():
-    print("As the numbers click into place, the padlock opens.")
-    print("You push the door and it swings open.")
-    print("You have escaped!\n")
-    print("Thank you for playing!\n")
+    print(END_TEXT)
     player_input = input("Type restart to play again or exit to quit.\n")
     if player_input.lower() == "restart":
         main()
@@ -191,7 +136,7 @@ def end_game():
 
 def main():
     player = Player()
-    title()
+    print(TITLE)
     initiate(player)
 
 
