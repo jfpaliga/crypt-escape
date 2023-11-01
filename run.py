@@ -106,17 +106,20 @@ def check_inventory(player):
 
 def validate_action(player, action):
     player_input = action.split(' ')
+    choice = player_input[0].lower()
+    if len(player_input) == 2:
+        item = player_input[1].lower()
 
-    if player_input[0].lower() == "help":
+    if choice == "help":
         initiate(player)
-    elif player_input[0].lower() == "inventory":
+    elif choice == "inventory":
         check_inventory(player)
         request_action(player)
-    elif player_input[0].lower() == "examine":
-        examine(player_input[1].lower())
+    elif choice == "examine":
+        examine(item)
         request_action(player)
-    elif player_input[0].lower() == "use":
-        validate_use(player, player_input[1].lower())
+    elif choice == "use":
+        validate_use(player, item)
         request_action(player)
     else:
         print("Enter a valid input.\n")
