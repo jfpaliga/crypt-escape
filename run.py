@@ -20,10 +20,8 @@ class Item:
     -------
     describe():
         Print a description of the item.
-
     use_item():
         Print the outcome of using the item.
-
     examine(item):
         Return the Item.describe() function if a passed
         item is valid.
@@ -35,12 +33,12 @@ class Item:
 
         Parameters
         ----------
-        name : str
-            The name of the item.
-        description : str
-            The description of the item.
-        use : str
-            The outcome of using the item.
+            name : str
+                The name of the item.
+            description : str
+                The description of the item.
+            use : str
+                The outcome of using the item.
         """
 
         self.name = name
@@ -88,23 +86,18 @@ class Player:
     start_game():
         Print START_TEXT and player instructions, then call the
         Player.get_action() method.
-
     end_game():
         Print END_TEXT to indicate completion of the game.
         Get player input to either restart the game or exit.
-
     get_action():
         Get player input and pass to the validate_action() function
         in utils.py.
-
     check_inventory():
         Check the length of the Player.inventory list and print an
         appropriate statement.
-
     use(item):
         Return the Item.use_item() method unless the passed item is
         an exception.
-
     add_to_inventory(item):
         Append the name of the passed item to the players inventory list.
     """
@@ -115,8 +108,8 @@ class Player:
 
         Parameters
         ----------
-        inventory : list
-            A list of items in the players inventory.
+            inventory : list
+                A list of items in the players inventory.
         """
 
         self.inventory = []
