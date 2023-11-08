@@ -54,3 +54,15 @@ The player can interact with the game by entering an input into the terminal des
 ### Future Features
 
 To be completed.
+
+# Testing
+
+## Validator Testing
+
+I passed all files through Code Institute's Python PEP8 Linter, which can be found [here](https://pep8ci.herokuapp.com/#).
+
+<div>The run.py and utils.py files both pass with no errors found.</div>
+
+<div>The constants.py file had whitespace errors related to the ASCII art. As these errors had no impact on the code, and were necessary for the ASCII, they were deemed acceptable.</div>
+
+![Screenshot of the PEP8 Linter for the constants.py file](.images/pep8validator.png)
