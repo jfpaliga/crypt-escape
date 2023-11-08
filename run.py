@@ -187,7 +187,7 @@ class Player:
         Return the Item.use_item() method unless the passed item is
         an exception.
 
-        In the case of the 'skeleton' and 'book' items, add an item to the 
+        In the case of the 'skeleton' and 'book' items, add an item to the
         Player.inventory list and print additional text.
 
         In the case of the 'padlock', get player input and pass to the
