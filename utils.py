@@ -105,8 +105,6 @@ def use_padlock(player, code):
     if int(code) == 3791:
         player.end_game()
     else:
-        print(r'''
-        You enter the numbers into the padlock,
-        but it does not budge.\n
-        ''')
+        print('''You enter the numbers into the padlock,
+but it does not budge.''')
         player.get_action()
