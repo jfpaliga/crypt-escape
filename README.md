@@ -97,11 +97,30 @@ In order to make sure the game runs smoothly, several validation cases were used
 
     </details>
 
-- If the player enters a valid input, and the specific case exists then the application will feedback to the user with a description of what happens when they take that action.
+- If the player enters a valid input, and the specific case exists then the application will provide feedback to the user with a description of what happens when they take that action.
 
     <details>
     <summary>Feedback for valid input</summary>
 
     ![](./images/validation_three.png)
+
+    </details>
+
+- When using the padlock, if the player enters text or a number that has fewer than or more than 4 digits then the application will provide feedback to the user requesting a 4 digit number.
+
+    <details>
+    <summary>Feedback for invalid input into padlock</summary>
+
+    ![](./images/padlockvalidationone.png)
+    ![](./images/padlockvalidationtwo.png)
+
+    </details>
+
+- When using the padlock, if an invalid code is entered then a message will be displayed to indicate the code was incorrect. The player can then perform another action.
+
+    <details>
+    <summary>Feedback for incorrect padlock code</summary>
+
+    ![](./images/padlockvalidationthree.png)
 
     </details>
