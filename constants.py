@@ -31,14 +31,14 @@ take a key from inside.''',
 }
 
 TITLE = r'''
- _____                  _     _____                         
-/  __ \                | |   |  ___|                        
-| /  \/_ __ _   _ _ __ | |_  | |__ ___  ___ __ _ _ __   ___ 
+ _____                  _     _____
+/  __ \                | |   |  ___|
+| /  \/_ __ _   _ _ __ | |_  | |__  __   __  _ _ _ __   ___
 | |   | '__| | | | '_ \| __| |  __/ __|/ __/ _` | '_ \ / _ \
 | \__/\ |  | |_| | |_) | |_  | |__\__ \ (_| (_| | |_) |  __/
  \____/_|   \__, | .__/ \__| \____/___/\___\__,_| .__/ \___|
-             __/ | |                            | |         
-            |___/|_|                            |_|         
+             __/ | |                            | |
+            |___/|_|                            |_|
 
 Welcome to Crypt Escape!
 
@@ -47,16 +47,21 @@ Welcome to Crypt Escape!
 START_TEXT = r'''
 You are in a cold stone crypt, a single torch provides light.
 You see a door with a padlock, a closed casket and a book.
+
+
 To see more details, type examine e.g. 'examine door'
 To use an object, type use e.g. 'use door'
 To check your inventory, type inventory
+
+
 To see these instructions again, type help
             '''
 
 END_TEXT = r'''
 As the numbers click into place, the padlock opens.
 You push the door and it swings open.
-You have escaped!
-Thank you for playing!
 
+You have escaped!
+
+Thank you for playing!
             '''
