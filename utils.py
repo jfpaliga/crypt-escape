@@ -33,7 +33,7 @@ def validate_action(player, action):
         validate_use(player, item)
         player.get_action()
     else:
-        print("Enter a valid input.\n")
+        print("Enter a valid input. Type help for instructions.\n")
         player.get_action()
 
 
@@ -105,6 +105,8 @@ def use_padlock(player, code):
     if int(code) == 3791:
         player.end_game()
     else:
-        print('''You enter the numbers into the padlock,\n
-        but it does not budge.\n''')
+        print('''
+        You enter the numbers into the padlock,
+        but it does not budge.\n
+        ''')
         player.get_action()
