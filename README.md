@@ -8,6 +8,7 @@
 - [Introduction](#introduction)
 - [User Stories](#user-stories)
 - [Features](#features)
+- [Testing](#testing)
 
 ## Introduction
 

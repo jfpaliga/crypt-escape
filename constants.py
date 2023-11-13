@@ -8,25 +8,30 @@ ROOM_ITEMS = {
 from inside it's mouth.'''
 }
 
+PAGE_TEXT = r'''
+"It began with the forging of the Great Rings.
+Three were given to the Elves, immortal, wisest and fairest of all beings.
+Seven to the Dwarf lords, great miners and craftsmen
+of the mountain halls.
+And Nine, nine rings were gifted to the race of men,
+who, above all else, desire power.
+But they were, all of them, deceived, for another Ring was made.
+In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron
+forged in secret a master Ring, to control all others.
+And into this Ring he poured his cruelty, his malice
+and his will to dominate all life.
+One Ring to rule them all."
+            '''
+
 ITEM_USES = {
     "door": "The door doesn't budge.",
     "casket": "You remove the lid and inside the casket is a skeleton.",
     "book": "You pick up the book. It cannot be opened without a key.",
-    "skeleton": '''You open the mouth of the skeleton and
-take a key from inside.''',
-    "page": '''You read the text on the page:
-    "It began with the forging of the Great Rings.
-    Three were given to the Elves, immortal, wisest and fairest of all beings.
-    Seven to the Dwarf lords, great miners and craftsmen
-    of the mountain halls.
-    And Nine, nine rings were gifted to the race of men,
-    who, above all else, desire power.
-    But they were, all of them, deceived, for another Ring was made.
-    In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron
-    forged in secret a master Ring, to control all others.
-    And into this Ring he poured his cruelty, his malice
-    and his will to dominate all life.
-    One Ring to rule them all."''',
+    "skeleton": r'''
+    You open the mouth of the skeleton and
+    take a key from inside.
+                ''',
+    "page": f"You read the text on the page:\n\n{PAGE_TEXT}",
     "padlock": None
 }
 
