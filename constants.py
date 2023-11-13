@@ -28,7 +28,7 @@ ITEM_USES = {
     "casket": "You remove the lid and inside the casket is a skeleton.",
     "book": "You pick up the book. It cannot be opened without a key.",
     "skeleton": '''You open the mouth of the skeleton and
-    take a key from inside.''',
+take a key from inside.''',
     "page": f"You read the text on the page:\n\n{PAGE_TEXT}",
     "padlock": None
 }
