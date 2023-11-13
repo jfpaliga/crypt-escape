@@ -82,10 +82,10 @@ def validate_code(player, code):
         if len(code) == 4:
             use_padlock(player, code)
         else:
-            new_code = input("Please enter a 4 digit number:\n")
+            new_code = input("\nPlease enter a 4 digit number:\n")
             validate_code(player, new_code)
     except ValueError:
-        new_code = input("Please enter a 4 digit number:\n")
+        new_code = input("\nPlease enter a 4 digit number:\n")
         validate_code(player, new_code)
 
 
@@ -105,6 +105,6 @@ def use_padlock(player, code):
     if int(code) == 3791:
         player.end_game()
     else:
-        print('''You enter the numbers into the padlock,
-but it does not budge.''')
+        print('''\nYou enter the numbers into the padlock,
+but it does not budge.\n''')
         player.get_action()
