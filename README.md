@@ -36,20 +36,10 @@ The player can interact with the game by entering an input into the terminal des
 
 ![Screenshot of the game instructions in the terminal](./images/description.png)
 
-- Input Validation
+- Player Input
 
-    - The application will take the users input and check it against a number of cases to determine whether or not the input is valid.
-    - If the input command is not recognised, the application will provide feedback to the user and request a valid input.
-
-    ![Screenshot of the invalid input feedback](./images/validation_one.png)
-    
-    - If the input command is valid, but there is no specific command for that case then the application will provide feedback to let the user know that there is nothing to see or that item cannot be used.
-
-    ![Screenshot of feedback for valid input but no specific case](./images/validation_two.png)
-
-    - If the input command is valid, and the specific case exists then the application will feedback to the user with a description of what happens when they take that action.
-
-    ![Screenshot of valid input feedback](./images/validation_three.png)
+    - The player provides a keyboard input to the application to determine the next course of action. The application validates the input and ensures it follows the format provided in the instructions.
+    - See the [Testing](#testing) section for further details.
 
 ### Future Features
 
@@ -61,8 +51,56 @@ To be completed.
 
 I passed all files through Code Institute's Python PEP8 Linter, which can be found [here](https://pep8ci.herokuapp.com/#).
 
-<div>The run.py and utils.py files both pass with no errors found.</div>
+All files passed with no issues found.
 
-<div>The constants.py file had whitespace errors related to the ASCII art. As these errors had no impact on the code, and were necessary for the ASCII, they were deemed acceptable.</div>
+<details>
+<summary>PEP8 Validation - run.py</summary>
 
-![Screenshot of the PEP8 Linter for the constants.py file](.images/pep8validator.png)
+![](./images/pep8validator_run.png)
+
+</details>
+
+<details>
+<summary>PEP8 Validation - utils.py</summary>
+
+![](./images/pep8validator_utils.png)
+
+</details>
+
+<details>
+<summary>PEP8 Validation - constants.py</summary>
+
+![](./images/pep8validator_const.png)
+
+</details>
+
+## Manual Tests
+
+In order to make sure the game runs smoothly, several validation cases were used and tested continuously throughout development. Feedback is provided to the player so that they are informed what input the game requires in order to continue.
+
+- If an input is not recognised, the application will provide feedback to the user and request a valid input.
+
+    <details>
+    <summary>Feedback for an invalid input</summary>
+
+    ![](./images/validation_one.png)
+
+    </details>
+
+- If the player enters a valid input, but no specific case for the input exists then the application will provide feedback to let the user know that there is nothing to see or that item cannot be used.
+
+    <details>
+    <summary>Feedback for a valid input but no specific case</summary>
+
+    ![](./images/validation_two.png)
+
+    </details>
+
+- If the player enters a valid input, and the specific case exists then the application will feedback to the user with a description of what happens when they take that action.
+
+    <details>
+    <summary>Feedback for valid input</summary>
+
+    ![](./images/validation_three.png)
+
+    </details>
