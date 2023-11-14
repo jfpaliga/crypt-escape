@@ -42,7 +42,7 @@ The player can interact with the game by entering an input into the terminal des
     - The player provides a keyboard input to the application to determine the next course of action. The application validates the input and ensures it follows the format provided in the instructions.
     - See the [Testing](#testing) section for further details.
 
-### Future Features
+## Future Features
 
 To be completed.
 
@@ -146,4 +146,24 @@ The application was deployed using [Heroku](https://www.heroku.com/) following t
 15. When Heroku has found the correct repository, click the **Connect** button that appears below the search bar.
 16. Scroll down to the bottom of the Deploy page and select one of the two deployment options:
     * In the Automatic deploy section, select the appropriate branch from the dropdown menu and click the **Enable Automatic Deploys** button. This will deploy the app automatically when an update is pushed to GitHub.
-    * In the Manual deploy section, select the appropriate branch from the dropwdown menu and click the **Deploy Branch** button. This will only deploy the current branch. Any further updates will require the app to be re-deployed. 
+    * In the Manual deploy section, select the appropriate branch from the dropwdown menu and click the **Deploy Branch** button. This will only deploy the current branch. Any further updates will require the app to be re-deployed.
+
+## Forking and Cloning
+
+If you wish to fork and clone this repository, follow the instructions below.
+
+### Forking
+
+1. In the top right of the repository page, click the **Fork** button.
+    ![Screenshot of the location of the Fork button on the repository page](./images/fork.png)
+2. Under **Owner**, select the desired owner from the dropdown menu.
+3. **OPTIONAL :** Change the default name of the repository in order to distinguish it.
+3. **OPTIONAL :** In the **Description** field, enter a description for the forked repository.
+4. Ensure the 'Copy the main branch only' checkbox is selected.
+5. Click the **Create fork** button.
+
+### Cloning the Forked Repository
+
+To clone the fork onto your local system, in your IDE Terminal enter the following command:
+
+    git clone https://github.com/jfpaliga/crypt-escape.git
