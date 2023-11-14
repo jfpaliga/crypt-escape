@@ -22,6 +22,12 @@ The player can interact with the game by entering an input into the terminal des
 - As a user, I need feedback when I have entered an invalid command.
 - As a user with an interest in games, I need an experience that is familiar but not too easy.
 
+## Planning
+
+To plan out the logic of the application, a flowchart was created using [draw.io](https://app.diagrams.net/).
+
+![Image of flowchart used to plan the application](./images/flowchart.png)
+
 ## Features
 
 - Game Title
@@ -167,3 +173,14 @@ If you wish to fork and clone this repository, follow the instructions below.
 To clone the fork onto your local system, in your IDE Terminal enter the following command:
 
     git clone https://github.com/jfpaliga/crypt-escape.git
+
+# Credits
+
+## Content
+
+- The [TextKool](https://textkool.com/en/ascii-art-generator) ASCII art generator was used to generate the title art used in the application.
+- The text from the book in the application was taken from J.R.R. Tolkien's The Lord of the Rings: The Fellowship of the Ring.
+
+## Acknowledgements
+
+- I would like to thank my CodeInstitute Mentor, Okwudiri Okoro, for all of his invaluable insight and advice, particularly relating to scalability of code and proper implementation of OOP protocols.
