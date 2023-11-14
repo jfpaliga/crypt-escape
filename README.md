@@ -124,3 +124,26 @@ In order to make sure the game runs smoothly, several validation cases were used
     ![](./images/padlockvalidationthree.png)
 
     </details>
+
+# Deployment
+
+The application was deployed using [Heroku](https://www.heroku.com/) following the procedure documented below.
+
+1. Log into Heroku or create an account.
+2. From the dashboard, click the **New** button in the top right and from the drop down menu select **Create new app**. If no apps have been created previously, the **Create new app** button can be selected directly from the dashboard home screen.
+3. Choose a name for the app (this must be unique, for this app the name 'crypt-escape' was chosen) and select the relevant region (in the case of this app, Europe), then press the **Create app** button.
+4. Navigate to the **Settings** tab. The tabs can be found at the top of the page underneath the header.
+5. Scroll down to the **Config Vars** section and click the **Reveal Config Vars** button.
+6. If the application uses any data that is not included in the GitHub repository (ie sensitive data) then it can be included here. For this app, the key "PORT" and value "8000" were entered.
+7. Scroll down to the **Buildpacks** section and click the **Add buildpack** button.
+8. From the pop-up menu, the select 'Python' and then click the **Add Buildpack** button.
+9. Repeat this process for 'node.js'.
+10. **IMPORTANT :** In the buildpack section, the two buildpacks should be visible with the python buildpack above the node.js buildpack. If the buildpacks are not in this order, they can be re-arranged by dragging the hamburger icon located to the left of the buildpack name.
+11. At the top of the page, navigate to the **Deploy** tab.
+12. Scroll down to the **Deployment method** section and select GitHub.
+13. Confirm the connection to GitHub by clicking the **Connect to GitHub** button.
+14. In the new box that has appeared, enter the repository name and click the **Search** button.
+15. When Heroku has found the correct repository, click the **Connect** button that appears below the search bar.
+16. Scroll down to the bottom of the Deploy page and select one of the two deployment options:
+    * In the Automatic deploy section, select the appropriate branch from the dropdown menu and click the **Enable Automatic Deploys** button. This will deploy the app automatically when an update is pushed to GitHub.
+    * In the Manual deploy section, select the appropriate branch from the dropwdown menu and click the **Deploy Branch** button. This will only deploy the current branch. Any further updates will require the app to be re-deployed. 
