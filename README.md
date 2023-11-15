@@ -7,8 +7,13 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [User Stories](#user-stories)
+- [Planning](#planning)
 - [Features](#features)
+- [Technologies Used](#technologies-used)
 - [Testing](#testing)
+- [Deployment](#deployment)
+- [Forking and Cloning](#forking-and-cloning)
+- [Credits](#credits)
 
 ## Introduction
 
@@ -48,13 +53,24 @@ To plan out the logic of the application, a flowchart was created using [draw.io
     - The player provides a keyboard input to the application to determine the next course of action. The application validates the input and ensures it follows the format provided in the instructions.
     - See the [Testing](#testing) section for further details.
 
-## Future Features
+### Future Features to Implement
 
-To be completed.
+- Additional items and interactions to increase game complexity.
+- Additional rooms to increase the length of the game.
+- A timer function to tell the player how long it took them to complete the game.
+- Functionality to clear the terminal to prevent terminal scrolling.
 
-# Testing
+## Technologies Used
 
-## Validator Testing
+- [Python](https://www.python.org/)
+- [Git](https://git-scm.com/) for version control.
+- [GitHub](https://github.com/) to use as a code repository during development.
+- [Heroku](https://www.heroku.com/) for application deployment.
+- [draw.io](https://app.diagrams.net/) for making the flow chart plan.
+
+## Testing
+
+### Validator Testing
 
 I passed all files through Code Institute's Python PEP8 Linter, which can be found [here](https://pep8ci.herokuapp.com/#).
 
@@ -81,7 +97,7 @@ All files passed with no issues found.
 
 </details>
 
-## Manual Tests
+### Manual Tests
 
 In order to make sure the game runs smoothly, several validation cases were used and tested continuously throughout development. Feedback is provided to the player so that they are informed what input the game requires in order to continue.
 
@@ -131,7 +147,7 @@ In order to make sure the game runs smoothly, several validation cases were used
 
     </details>
 
-# Deployment
+## Deployment
 
 The application was deployed using [Heroku](https://www.heroku.com/) following the procedure documented below.
 
@@ -174,13 +190,13 @@ To clone the fork onto your local system, in your IDE Terminal enter the followi
 
     git clone https://github.com/jfpaliga/crypt-escape.git
 
-# Credits
+## Credits
 
-## Content
+### Content
 
 - The [TextKool](https://textkool.com/en/ascii-art-generator) ASCII art generator was used to generate the title art used in the application.
 - The text from the book in the application was taken from J.R.R. Tolkien's The Lord of the Rings: The Fellowship of the Ring.
 
-## Acknowledgements
+### Acknowledgements
 
 - I would like to thank my CodeInstitute Mentor, Okwudiri Okoro, for all of his invaluable insight and advice, particularly relating to scalability of code and proper implementation of OOP protocols.
